@@ -1,0 +1,9 @@
+// {type:class}
+// {direction:leftToRight}
+// {generate:true}
+[Board|projects|getProjects();addProject()]
+[Project|tasks;title;description|getTasks();addTask()]
+[Task|dueDate;completed;description;priority;title|updateDueDate();updateStatus();updateTitle();updateDescription();updatePriority();]
+[Board]->[Project]
+[Project]->[Task]
+[UserInterface||draw()]
