@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "date-fns": "^2.16.1",
-    "fomantic-ui-css": "^2.8.7",
-    "normalize.css": "^8.0.1"
+    "fomantic-ui-css": "^2.8.7"
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
