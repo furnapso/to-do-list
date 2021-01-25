@@ -1,6 +1,14 @@
-# to-do-list
+# To-Do List
 
-Empty project.
+Project for [The Odin Project](https://www.theodinproject.com) - *make a to-do list*.
+
+## Technologies used
+* npm
+* Javascript
+* HTML
+* CSS
+* webpack
+* [Fomantic UI](https://fomantic-ui.com/)
 
 ## Building and running on localhost
 
@@ -20,10 +28,3 @@ To create a development build:
 
 ```sh
 npm run build-dev
-```
-
-## Running
-
-```sh
-node dist/bundle.js
-```
