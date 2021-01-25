@@ -1,6 +1,6 @@
 import Project from "project"
 
-const board = () => {
+const Board = () => {
     let projects = [];
 
     const getProjects = () => projects;
@@ -13,4 +13,4 @@ const board = () => {
     }
 }
 
-export default board;
+export default Board;
