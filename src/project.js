@@ -1,3 +1,5 @@
+import Task from "./task";
+
 const Project = (title, description) => {
     let title = title;
     let description = description;
@@ -8,8 +10,13 @@ const Project = (title, description) => {
     const getDescription = () => description;
     const updateDescription = (newDescription) => description = newDescription;
 
+    const addTask = (title, description, dueDate, priority) => {
+        tasks.push(Task(title, description, dueDate, priority));
+    }
+    const getTasks = () => tasks;
+
     return {
-        getTitle, updateTitle, getDescription, updateDescription
+        getTitle, updateTitle, getDescription, updateDescription, addTask, getTasks
     }
 }
 
