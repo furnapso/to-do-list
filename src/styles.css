@@ -1,0 +1,20 @@
+/* Design system */
+:root {
+    --lightest-primary: hsl(217, 100%, 91%);
+    --lighter-primary: hsl(217, 100%, 71%);
+    --primary: hsl(217, 100%, 61%);
+    --darker-primary: hsl(217, 100%, 51%);
+    --darkest-primary: hsl(217, 100%, 41%);
+
+    --lightest-secondary: hsl(334, 100%, 70%);
+    --lighter-secondary: hsl(334, 100%, 60%);
+    --secondary: hsl(334, 100%, 50%);
+    --darker-secondary: hsl(334, 100%, 40%);
+    --darkest-secondary: hsl(334, 100%, 30%);
+
+    --black: hsl(225, 15%, 5%);
+    --darkest-gray: hsl(225, 15%, 15%);
+    --darker-gray: hsl(225, 15%, 25%);
+    --gray: hsl(225, 15%, 35%);
+    --lighter-gray: hsl(225, 15%, 50%);
+}
