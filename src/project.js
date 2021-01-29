@@ -1,18 +1,22 @@
+// @ts-check
 import Task from "./task";
 
-const Project = (title, description) => {
-    let tasks = [];
+const Project = (title, description) => ({
+    title: title,
+    description: description,
+    _tasks: [],
 
-    const updateTitle = (newTitle) => title = newTitle;
-    const updateDescription = (newDescription) => description = newDescription;
+    addTask(title, description, dueDate, priority) {
+        this._tasks.push(Task(title, description, dueDate, priority));
+    },
 
-    const addTask = (title, description, dueDate, priority) => {
-        tasks.push(Task(title, description, dueDate, priority));
+    updateProject(update) {
+        for (let item in update) {
+            if (Object.keys(this).includes(item)) {
+                this[item] = update[item];
+            }
+        }
     }
-
-    return {
-        tasks, title, description, updateTitle, updateDescription, addTask
-    }
-}
+})
 
 export default Project
