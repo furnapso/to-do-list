@@ -18,3 +18,21 @@
     --gray: hsl(225, 15%, 35%);
     --lighter-gray: hsl(225, 15%, 50%);
 }
+
+#content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 50%;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.todo-sidebar {
+    height: 100%;
+}

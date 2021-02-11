@@ -1,5 +1,3 @@
-import "fomantic-ui";
 import "./styles.css";
+import "fomantic-ui";
 import Board from "./board";
-
-console.log(Board);
