@@ -7,7 +7,7 @@
 </head>
     <div id="content">
         <div id="main-container" class="ui container">
-            <div id='sidebar' class='ui menu vertical'>
+            <div id='sidebar' class='ui vertical pointing menu'>
                 <div id='profile-settings' class='item'>
                     <button id="profile" class='ui button icon circular'>
                         <i class='icon user'></i>
@@ -16,11 +16,19 @@
                         <i class='icon cog'></i>
                     </button>
                 </div>
-                <div id='projects' class='item header'>
+                <div id='projects-title' class='item header'>
                     Projects
-                    <button class='ui button circular icon small basic'>
+                    <button id='add-new-project' class='ui button circular icon small basic'>
                         <i class='icon plus'></i>
                     </button>
+                </div>
+                <div id="projects">
+                    <div class='active blue item'>
+                        Project 1
+                    </div>
+                    <div class='item'>
+                        Project 2
+                    </div>
                 </div>
             </div>
         </div>
