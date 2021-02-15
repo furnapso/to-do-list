@@ -20,8 +20,13 @@
     justify-content: space-between;
 }
 
-#projects {
+#projects-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#projects {
+    overflow-y: auto;
+    overflow-x: hidden;
 }
