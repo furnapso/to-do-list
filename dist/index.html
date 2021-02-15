@@ -6,19 +6,22 @@
     <title>To-Do List</title>
 </head>
     <div id="content">
-        <div id="main-container" class="ui container four column grid">
-            <div id="sidebar" class="ui segment column four grid">
-                <div id="menu">
-                    <p>Profile</p>
-                    <p>Settings</p>
+        <div id="main-container" class="ui container">
+            <div id='sidebar' class='ui menu vertical'>
+                <div id='profile-settings' class='item'>
+                    <button id="profile" class='ui button icon circular'>
+                        <i class='icon user'></i>
+                    </button>
+                    <button id="settings" class='ui button icon circular'>
+                        <i class='icon cog'></i>
+                    </button>
                 </div>
-                <span id="projects-header">
-                    <h1>Projects</h1>
-                    <h1>+</h1>
-                </span>
-            </div>
-            <div class="ui" id="board">
-                
+                <div id='projects' class='item header'>
+                    Projects
+                    <button class='ui button circular icon small basic'>
+                        <i class='icon plus'></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
