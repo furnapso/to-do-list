@@ -2,17 +2,21 @@
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #main-container {
     width: 50%;
     height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0;
 }
 
 #sidebar {
     height: 100%;
+    width: 100%;
+    grid-column: 1;
 }
 
 #profile-settings {
@@ -29,4 +33,16 @@
 #projects {
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+#board {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    grid-column: 2 / 5;
+}
+
+#task {
+    display: flex;
+    justify-content: space-between;
 }
