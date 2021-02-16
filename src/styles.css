@@ -43,6 +43,36 @@
 }
 
 #task {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    align-items: center;
+    justify-items: start;
+    grid-template-columns: 2em 2fr 1fr;
+}
+
+#task .actions {
+    justify-self: end;
+}
+
+.strike {
+    position: relative;
+}
+
+.strike:before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: black;
+    animation: forwards 200ms strike linear 1;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes strike {
+    0% {width: 0}
+    100% {width: 100%}
 }
