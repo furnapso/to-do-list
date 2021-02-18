@@ -5,12 +5,15 @@ const UserInterface = (() => {
 
     const components = {
         task: (task) => {
-            const div = `<div id='task' class='ui segment'>
-            <input type='checkbox' class='ui checkbox circular'>
-            <div class='task-title'>${task.Title}</div>
-            <span id='actions' class='hidden'>
-                <i class='icon delete'></i>
-            </span>`
+            const div = `
+            <div id='task' class='ui segment'>
+                <input type='checkbox' class='ui checkbox circular'>
+                <div class='task-title'>${task.Title}</div>
+                <span id='actions' class='hidden'>
+                    <i class='icon delete'></i>
+                </span>
+            </div>`
+            
             div.addEventListener('mouseover', (e) => {
                 e.target.querySelector("#actions").classList()
             })
