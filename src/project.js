@@ -11,6 +11,10 @@ const Project = (title, description) => ({
     _tasks: [],
     _acceptedUpdates: ['title', 'description'],
 
+    getTasks() {
+        return this._tasks;
+    },
+
     /**
      * @param {string} title New task title
      * @param {string} description New task description

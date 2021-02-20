@@ -5,18 +5,27 @@ const UserInterface = (() => {
 
     const components = {
         task: (task) => {
-            const div = `
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = `
             <div id='task' class='ui segment'>
                 <input type='checkbox' class='ui checkbox circular'>
-                <div class='task-title'>${task.Title}</div>
+                <div class='task-title'>${task.title}</div>
                 <span id='actions' class='hidden'>
                     <i class='icon delete'></i>
                 </span>
             </div>`
+
+            const div = tempDiv.firstElementChild;
             
             div.addEventListener('mouseover', (e) => {
-                e.target.querySelector("#actions").classList()
+                e.target.querySelector("#actions").classList.remove("hidden");
             })
+
+            div.addEventListener('mouseleave', e => {
+                e.target.querySelector("#actions").classList.add("hidden");
+            })
+            
+            return div;
         }
     }
 

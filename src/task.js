@@ -1,7 +1,7 @@
 const Task = (title, description, dueDate, priority, id=0) => {
     const updateTitle = (newTitle) => title = newTitle;
     const updateDescription = (newDescription) => description = newDescription;
-    let completed = False;
+    let completed = false;
 
     return {
         updateTitle,
