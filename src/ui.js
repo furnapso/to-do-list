@@ -34,6 +34,14 @@ const UserInterface = (() => {
             </div>`);
 
             return div
+        },
+
+        projects: (projects) => {
+            const div = projects.map(project => html`
+                <div class='item'>${project.title}</div>
+            `)
+
+            return div
         }
     }
 
