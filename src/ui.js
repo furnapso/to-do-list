@@ -11,6 +11,11 @@ const UserInterface = (() => {
         render(tasksDiv, tasksContainer);
     }
 
+    const drawProjects = (projects) => {
+        const projectsDiv =components.projects(projects);
+        render(projectsDiv, projectsContainer)
+    }
+
     const components = {
         tasks: (tasks) => {
             const eventHandler = e => {
@@ -45,7 +50,7 @@ const UserInterface = (() => {
         }
     }
 
-    return {projects, addNewProjectBtn, projectTitle, components, drawTasks}
+    return {projects, addNewProjectBtn, projectTitle, components, drawTasks, drawProjects}
 })();
 
 
