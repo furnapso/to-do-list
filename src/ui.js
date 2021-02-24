@@ -1,10 +1,15 @@
-import {html} from "lit-html";
+import {html, render} from "lit-html";
 
 const UserInterface = (() => {
-    const projects = document.querySelector("#projects");
+    const projectsContainer = document.querySelector("#projects");
     const addNewProjectBtn = document.querySelector("#add-new-project");
     const projectTitle = document.querySelector("#project-title");
-    const tasks = document.querySelector("#tasks");
+    const tasksContainer = document.querySelector("#tasks");
+
+    const drawTasks = (tasks) => {
+        const tasksDiv = components.tasks(tasks);
+        render(tasksDiv, tasksContainer);
+    }
 
     const components = {
         tasks: (tasks) => {
@@ -21,7 +26,7 @@ const UserInterface = (() => {
 
             const div = tasks.map(task => html`
             <div id='task' class='ui segment' @mouseover=${eventHandler} @mouseleave=${eventHandler}>
-                <input type='checkbox' class='ui checkbox circular'>
+                <input type='checkbox' class='ui checkbox'>
                 <div class='task-title'>${task.title}</div>
                 <span id='actions' class='hidden'>
                     <i class='icon delete'></i>
@@ -32,7 +37,7 @@ const UserInterface = (() => {
         }
     }
 
-    return {projects, addNewProjectBtn, projectTitle, components}
+    return {projects, addNewProjectBtn, projectTitle, components, drawTasks}
 })();
 
 
