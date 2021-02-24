@@ -4,6 +4,7 @@ const UserInterface = (() => {
     const projects = document.querySelector("#projects");
     const addNewProjectBtn = document.querySelector("#add-new-project");
     const projectTitle = document.querySelector("#project-title");
+    const tasks = document.querySelector("#tasks");
 
     const components = {
         tasks: (tasks) => {
