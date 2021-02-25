@@ -9,6 +9,7 @@ Project for [The Odin Project](https://www.theodinproject.com) - *make a to-do l
 * CSS
 * webpack
 * [Fomantic UI](https://fomantic-ui.com/)
+* lit-html
 
 ## Building and running on localhost
 
