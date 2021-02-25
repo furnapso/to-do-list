@@ -33,7 +33,7 @@ const UserInterface = (() => {
             <div id='task' class='ui segment' @mouseover=${eventHandler} @mouseleave=${eventHandler}>
                 <input type='checkbox' class='ui checkbox'>
                 <div class='task-title'>${task.title}</div>
-                <span id='actions' class='hidden'>
+                <span id='actions' class='hidden actions'>
                     <i class='icon delete'></i>
                 </span>
             </div>`);

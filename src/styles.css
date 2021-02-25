@@ -68,11 +68,14 @@
     animation: forwards 200ms strike linear 1;
 }
 
-.hidden {
-    display: none;
+.actions {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 200ms;
 }
 
-@keyframes strike {
-    0% {width: 0}
-    100% {width: 100%}
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 200ms 0ms, opacity 200ms;
 }
