@@ -1,24 +1,24 @@
 import {html, render} from "lit-html";
 
-const UserInterface = (() => {
+const UserInterface = Board => (() => {
     const projectsContainer = document.querySelector("#projects");
     const addNewProjectBtn = document.querySelector("#add-new-project");
     const projectTitle = document.querySelector("#project-title");
     const tasksContainer = document.querySelector("#tasks");
 
-    const drawTasks = (tasks) => {
-        const tasksDiv = components.tasks(tasks);
+    const drawTasks = () => {
+        const tasksDiv = components.tasks(Board.activeProject()._tasks);
         render(tasksDiv, tasksContainer);
     }
 
-    const drawProjects = (projects) => {
-        const projectsDiv =components.projects(projects);
-        render(projectsDiv, projectsContainer)
+    const drawProjects = () => {
+        const projectsDiv = components.projects(Board.projects);
+        render(projectsDiv, projectsContainer);
     }
 
     const components = {
         tasks: (tasks) => {
-            const eventHandler = e => {
+            const taskEventHandler = e => {
                 switch(e.type) {
                     case "mouseover":
                         e.target.querySelector("#actions").classList.remove('hidden');
@@ -29,12 +29,18 @@ const UserInterface = (() => {
                 }
             }
 
+            const deleteEventHandler = e => {
+                const id = Number(e.target.getAttribute('data-id'));
+                Board.activeProject().deleteTask(id);
+                drawTasks();
+            }
+
             const div = tasks.map(task => html`
-            <div id='task' class='ui segment' @mouseover=${eventHandler} @mouseleave=${eventHandler}>
+            <div id='task' class='ui segment' @mouseover=${taskEventHandler} @mouseleave=${taskEventHandler}>
                 <input type='checkbox' class='ui checkbox'>
                 <div class='task-title'>${task.title}</div>
                 <span id='actions' class='hidden actions'>
-                    <i class='icon delete'></i>
+                    <i class='icon delete' data-id='${task.id}' @click=${deleteEventHandler}></i>
                 </span>
             </div>`);
 

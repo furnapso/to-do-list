@@ -4,12 +4,13 @@ import Task from "./task";
 /**
  * @param {string} title Project title
  * @param {string} description Project description
+ * @param {Number} id Project ID
  */
-const Project = (title, description) => ({
+const Project = (title, description, id) => ({
     title: title,
     description: description,
     _tasks: [],
-    _acceptedUpdates: ['title', 'description'],
+    id: id,
 
     getTasks() {
         return this._tasks;
@@ -22,28 +23,15 @@ const Project = (title, description) => ({
      * @param {Number} priority - New task priority - defaults to 1
      */
     addTask(title, description, dueDate, priority) {
-        this._tasks.push(Task(title, description, dueDate, priority));
+        this._tasks.push(Task(title, description, dueDate, priority, this._tasks.length));
     },
 
     /**
-     * @param {Object} updateObj Update object in format {field: new value}. Accepts title & description
+     * 
+     * @param {Number} id Task ID 
      */
-    updateProject(updateObj) {
-        const invalidUpdates = [];
-        const validUpdates = [];
-        for (let item in updateObj) {
-            if (this._acceptedUpdates.includes(item)) {
-                validUpdates.push(item)
-            }
-            else {
-                invalidUpdates.push(item)
-            }
-        }
-
-        if (invalidUpdates.length > 0) {
-            let exceptionString = ''
-        }
-
+    deleteTask(id) {
+        this._tasks.splice(id - 1, 1)
     }
 })
 
