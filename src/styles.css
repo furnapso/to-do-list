@@ -71,11 +71,21 @@
 .actions {
     visibility: visible;
     opacity: 1;
-    transition: opacity 200ms;
+    transition: opacity 200ms color 200ms;
+}
+
+.delete:hover {
+    color: red;
+    cursor: pointer;
+    transition: color 200ms;
 }
 
 .hidden {
     visibility: hidden;
     opacity: 0;
     transition: visibility 200ms 0ms, opacity 200ms;
+}
+
+[contenteditable] {
+    outline: none;
 }
