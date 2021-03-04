@@ -32,6 +32,13 @@ const Project = (title, description, id) => ({
      */
     deleteTask(id) {
         this._tasks.splice(id - 1, 1)
+    },
+
+    updateTask(id, title, dueDate, priority) {
+        let task = this._tasks[id - 1];
+        task.title = title ? title : task.title;
+        task.dueDate = dueDate ? dueDate : task.dueDate;
+        task.priority = priority ? priority : task.priority;
     }
 })
 
