@@ -19,13 +19,15 @@ const UserInterface = Board => (() => {
     const components = {
         tasks: (tasks) => {
             const taskEventHandler = e => {
-                switch(e.type) {
-                    case "mouseover":
-                        e.target.querySelector("#actions").classList.remove('hidden');
-                        break;
-                    case "mouseleave":
-                        e.target.querySelector("#actions").classList.add('hidden');
-                        break
+                if (e.target.id == "task") {
+                    switch(e.type) {
+                        case "mouseover":
+                            e.target.querySelector("#actions").classList.remove('hidden');
+                            break;
+                        case "mouseleave":
+                            e.target.querySelector("#actions").classList.add('hidden');
+                            break
+                    }
                 }
             }
 
@@ -35,10 +37,21 @@ const UserInterface = Board => (() => {
                 drawTasks();
             }
 
+            const checkboxEventHandler = e => {
+                e.target.parentElement.classList.toggle("strike");
+            }
+
+            const updateEventHandler = e => {
+                let newTitle = e.target.innerText;
+                let id = parseInt(e.target.getAttribute('data-id'));
+                Board.activeProject().updateTask(newTitle.getAttribute('data-id'), newTitle);
+                console.log(newTitle);
+            }
+
             const div = tasks.map(task => html`
             <div id='task' class='ui segment' @mouseover=${taskEventHandler} @mouseleave=${taskEventHandler}>
-                <input type='checkbox' class='ui checkbox'>
-                <div class='task-title'>${task.title}</div>
+                <input type='checkbox' class='ui checkbox' data-id='${task.id}' @click=${checkboxEventHandler}>
+                <div class='task-title' contenteditable="true" @update=${updateEventHandler}>${task.title}</div>
                 <span id='actions' class='hidden actions'>
                     <i class='icon delete' data-id='${task.id}' @click=${deleteEventHandler}></i>
                 </span>
