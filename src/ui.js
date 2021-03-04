@@ -43,15 +43,15 @@ const UserInterface = Board => (() => {
 
             const updateEventHandler = e => {
                 let newTitle = e.target.innerText;
-                let id = parseInt(e.target.getAttribute('data-id'));
-                Board.activeProject().updateTask(newTitle.getAttribute('data-id'), newTitle);
+                let id = parseInt(e.target.dataset.id);
+                Board.activeProject().updateTask(id, newTitle);
                 console.log(newTitle);
             }
 
             const div = tasks.map(task => html`
             <div id='task' class='ui segment' @mouseover=${taskEventHandler} @mouseleave=${taskEventHandler}>
                 <input type='checkbox' class='ui checkbox' data-id='${task.id}' @click=${checkboxEventHandler}>
-                <div class='task-title' contenteditable="true" @update=${updateEventHandler}>${task.title}</div>
+                <div class='task-title' contenteditable="true" data-id='${task.id}' @input=${updateEventHandler}>${task.title}</div>
                 <span id='actions' class='hidden actions'>
                     <i class='icon delete' data-id='${task.id}' @click=${deleteEventHandler}></i>
                 </span>
