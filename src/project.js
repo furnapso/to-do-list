@@ -5,12 +5,14 @@ import Task from "./task";
  * @param {string} title Project title
  * @param {string} description Project description
  * @param {Number} id Project ID
+ * @param {boolean} active Whether this project is the currently active project or not
  */
-const Project = (title, description, id) => ({
+const Project = (title, description, id, active = false) => ({
     title: title,
     description: description,
     _tasks: [],
     id: id,
+    active: false,
 
     getTasks() {
         return this._tasks;
