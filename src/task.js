@@ -1,7 +1,6 @@
-const Task = (title, description, dueDate, priority, id) => {
+const Task = (title, description, dueDate, priority, id, completed = false) => {
     const updateTitle = (newTitle) => title = newTitle;
     const updateDescription = (newDescription) => description = newDescription;
-    let completed = false;
 
     return {
         updateTitle,

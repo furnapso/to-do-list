@@ -39,6 +39,10 @@ const UserInterface = Board => (() => {
 
             const checkboxEventHandler = e => {
                 e.target.parentElement.classList.toggle("strike");
+                const id = Number(e.target.getAttribute('data-id'));
+                Board.activeProject().toggleTaskCompletion(id);
+                console.log(Board.activeProject());
+                drawTasks();
             }
 
             const updateEventHandler = e => {

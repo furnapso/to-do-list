@@ -36,11 +36,17 @@ const Project = (title, description, id, active = false) => ({
         this._tasks.splice(id, 1)
     },
 
-    updateTask(id, title, dueDate, priority) {
+    updateTask(id, title, dueDate, priority, completed) {
         let task = this._tasks[id];
         task.title = title ? title : task.title;
         task.dueDate = dueDate ? dueDate : task.dueDate;
         task.priority = priority ? priority : task.priority;
+        task.completed = completed ? completed : task.completed;
+    },
+
+    toggleTaskCompletion(id) {
+        let task = this._tasks[id];
+        task.completed = !task.completed;
     }
 })
 
