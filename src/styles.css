@@ -89,3 +89,9 @@
 [contenteditable] {
     outline: none;
 }
+
+.add-new-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
