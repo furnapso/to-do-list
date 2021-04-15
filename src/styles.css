@@ -95,3 +95,9 @@
     display: flex;
     justify-content: center;
 }
+
+#add-new:hover {
+    color: green;
+    cursor: pointer;
+    transition: color 200ms;
+}
