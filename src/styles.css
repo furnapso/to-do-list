@@ -90,13 +90,13 @@
     outline: none;
 }
 
-.add-new-wrapper {
+.add-new-task-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-#add-new:hover {
+#add-new-task:hover {
     color: green;
     cursor: pointer;
     transition: color 200ms;

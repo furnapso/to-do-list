@@ -3,6 +3,7 @@ import {html, render} from "lit-html";
 const UserInterface = Board => (() => {
     const projectsContainer = document.querySelector("#projects");
     const addNewProjectBtn = document.querySelector("#add-new-project");
+    const addNewTaskBtn = document.querySelector("#add-new-task")
     const projectTitle = document.querySelector("#project-title");
     const tasksContainer = document.querySelector("#tasks");
 
