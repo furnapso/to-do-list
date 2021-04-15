@@ -1,5 +1,11 @@
 import {html, render} from "lit-html";
+import Board from "./board";
 
+/**
+ * 
+ * @param {Board} Board Board object
+ * @returns None
+ */
 const UserInterface = Board => (() => {
     const projectsContainer = document.querySelector("#projects");
     const addNewProjectBtn = document.querySelector("#add-new-project");
@@ -15,6 +21,11 @@ const UserInterface = Board => (() => {
     const drawProjects = () => {
         const projectsDiv = components.projects(Board.projects);
         render(projectsDiv, projectsContainer);
+    }
+
+    const addNewTask = () => {
+        Board.activeProject().addTask("", "");
+        drawTasks();
     }
 
     const components = {
