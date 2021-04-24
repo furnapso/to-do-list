@@ -1,4 +1,5 @@
 import Project from "./project"
+import generateRandomId from "./random";
 
 const Board = (() => {
     let projects = [];
@@ -11,7 +12,7 @@ const Board = (() => {
     }
     
     const addProject = (title, description) => {
-        projects.push(Project(title, description, projects.length))
+        projects.push(Project(title, description, generateRandomId(projects)))
     }
 
     /* create default project */
