@@ -101,3 +101,8 @@
     cursor: pointer;
     transition: color 200ms;
 }
+
+#task input[type='text'] {
+    border: none;
+    width: 100%;
+}

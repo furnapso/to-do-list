@@ -67,7 +67,7 @@ const UserInterface = Board => (() => {
             const div = tasks.map(task => html`
             <div id='task' class='ui segment ${task.completed ? 'strike' : ''}' @mouseover=${taskEventHandler} @mouseleave=${taskEventHandler}>
                 <input type='checkbox' class='ui checkbox' data-id='${task.id}' ?checked=${task.completed} @click=${checkboxEventHandler}>
-                <div class='task-title' contenteditable="true" data-id='${task.id}' @input=${updateEventHandler}>${task.title}</div>
+                <input type='text' class='task-title' contenteditable="true" data-id='${task.id}' @input=${updateEventHandler} value='${task.title}'>
                 <span id='actions' class='hidden actions'>
                     <i class='icon delete' data-id='${task.id}' @click=${deleteEventHandler}></i>
                 </span>
