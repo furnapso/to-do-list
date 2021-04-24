@@ -10,12 +10,12 @@ const Board = (() => {
         }
     }
     
-    const addProject = (title, description, active = false) => {
+    const addProject = (title, description, active) => {
         projects.push(Project(title, description, projects.length, active))
     }
 
     /* create default project */
-    addProject("Default Project", "This is the default starting project");
+    addProject("Default Project", "This is the default starting project", true);
     
     return {
         projects, addProject, activeProject
