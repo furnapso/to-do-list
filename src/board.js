@@ -10,8 +10,8 @@ const Board = (() => {
         }
     }
     
-    const addProject = (title, description) => {
-        projects.push(Project(title, description, projects.length))
+    const addProject = (title, description, active = false) => {
+        projects.push(Project(title, description, projects.length, active))
     }
 
     /* create default project */
