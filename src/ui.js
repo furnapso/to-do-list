@@ -78,7 +78,7 @@ const UserInterface = Board => (() => {
 
         projects: (projects) => {
             const div = projects.map(project => html`
-                <div class='item'>${project.title}</div>
+                <div class='item ${project.active ? 'active blue' : ''}'>${project.title}</div>
             `)
 
             return div
