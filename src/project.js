@@ -12,7 +12,7 @@ const Project = (title, description, id, active = false) => ({
     description: description,
     _tasks: [],
     id: id,
-    active: false,
+    active: active,
 
     getTasks() {
         return this._tasks;
