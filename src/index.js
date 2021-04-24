@@ -9,3 +9,5 @@ Board.projects[0].addTask("New task", "Task description", new Date(), 1);
 Board.projects[0].addTask("New task", "Task description", new Date(), 1);
 Board.activeProject()._tasks[0].completed = true;
 UI(Board).drawTasks();
+UI(Board).drawProjects();
+console.log(Board);
