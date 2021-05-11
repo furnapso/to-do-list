@@ -11,7 +11,7 @@ const Board = (() => {
     }
     
     const addProject = (title, description, active) => {
-        projects.push(Project(title, description, projects.length, active))
+        projects.push(Project(title, description, new Date(), active))
     }
 
     /* create default project */
