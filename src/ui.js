@@ -28,6 +28,11 @@ const UserInterface = Board => (() => {
         drawTasks();
     }
 
+    const addNewProject = () => {
+        Board.addProject("New Project");
+        drawProjects();
+    }
+
     const components = {
         tasks: (tasks) => {
             const taskEventHandler = e => {
@@ -91,6 +96,7 @@ const UserInterface = Board => (() => {
     }
 
     addNewTaskBtn.addEventListener('click', addNewTask);
+    addNewProjectBtn.addEventListener('click', addNewProject);
 
     return {projects, addNewProjectBtn, projectTitle, components, draw}
 })();
