@@ -30,6 +30,6 @@ const Board = (() => {
     return {
         projects, addProject, activeProject, updateProject, changeActiveProject
     }
-})();
+}})();
 
 export default Board;
