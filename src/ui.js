@@ -102,6 +102,7 @@ const UserInterface = Board => (() => {
                     e.target.classList.remove('check');
                     e.target.classList.add('edit', 'outline');
                     editingEnabled = false;
+                    draw();
                 }
             }
 
@@ -125,8 +126,8 @@ const UserInterface = Board => (() => {
     }
 
     const draw = () => {
-        drawTasks();
         drawProjects();
+        drawTasks();
     }
 
     addNewTaskBtn.addEventListener('click', addNewTask);
