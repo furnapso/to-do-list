@@ -108,3 +108,8 @@
     outline: none;
     background: none;
 }
+
+#project {
+    display: flex;
+    align-items: center;
+}

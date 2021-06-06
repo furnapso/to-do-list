@@ -83,7 +83,10 @@ const UserInterface = Board => (() => {
 
         projects: (projects) => {
             const div = projects.map(project => html`
-                <div class='item ${project.active ? 'active blue' : ''}'><input type='text' readonly="true" value='${project.title}'></div>
+                <div class='item ${project.active ? 'active blue' : ''}' id='project'>
+                    <input type='text' readonly="true" value='${project.title}'>
+                    <i class="edit outline icon"></i>
+                </div>
             `)
 
             return div
