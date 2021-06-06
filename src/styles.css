@@ -113,3 +113,7 @@
     display: flex;
     align-items: center;
 }
+
+#project *, #project {
+    cursor: pointer;
+}

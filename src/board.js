@@ -14,17 +14,23 @@ const Board = (() => {
         projects.push(Project(title, description, projects.length, active))
     }
 
-    const updateProject = (title, id, active) => {
+    const updateProject = (title, id) => {
         const projectToUpdate = projects.filter(i => i.id == id)[0];
         projectToUpdate.title = title;
-        projectToUpdate.active = active ? active : projectToUpdate.active;
+    }
+
+    const changeActiveProject = (id) => {
+        const currentlyActiveProject = projects.filter(i => i.active == true)[0];
+        const projectToUpdate = projects.filter(i => i.id == id)[0];
+        projectToUpdate.active = true;
+        currentlyActiveProject.active = false;
     }
 
     /* create default project */
     addProject("Default Project", "This is the default starting project", true);
     
     return {
-        projects, addProject, activeProject, updateProject
+        projects, addProject, activeProject, updateProject, changeActiveProject
     }
 })();
 

@@ -82,6 +82,8 @@ const UserInterface = Board => (() => {
         },
 
         projects: (projects) => {
+            let editingEnabled = false;
+
             const editMode = e => {
                 const projectId = e.target.getAttribute('data-id');
                 const projectTextBox = document.querySelector(`input[data-id='${projectId}']`);
@@ -91,6 +93,7 @@ const UserInterface = Board => (() => {
                     projectTextBox.focus();
                     e.target.classList.remove('edit', 'outline');
                     e.target.classList.add('check');
+                    editingEnabled = true;
                 }
 
                 else if (Array.from(e.target.classList).includes("check")) {
@@ -98,12 +101,20 @@ const UserInterface = Board => (() => {
                     Board.updateProject(projectTextBox.value, projectId);
                     e.target.classList.remove('check');
                     e.target.classList.add('edit', 'outline');
-                    console.log(Board);
+                    editingEnabled = false;
+                }
+            }
+
+            const changeActive = e => {
+                if (!editingEnabled) {
+                    const projectId = e.target.getAttribute('data-id');
+                    Board.changeActiveProject(projectId);
+                    draw();
                 }
             }
 
             const div = projects.map(project => html`
-                <div class='item ${project.active ? 'active blue' : ''}' id='project'>
+                <div class='item ${project.active ? 'active blue' : ''}' id='project' @click=${changeActive}>
                     <input type='text' readonly="true" value='${project.title}' data-id=${project.id}>
                     <i class="edit outline icon" data-id='${project.id}' @click=${editMode}></i>
                 </div>
