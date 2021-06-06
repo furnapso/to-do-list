@@ -72,7 +72,7 @@ const UserInterface = Board => (() => {
             const div = tasks.map(task => html`
             <div id='task' class='ui segment ${task.completed ? 'strike' : ''}' @mouseover=${taskEventHandler} @mouseleave=${taskEventHandler}>
                 <input type='checkbox' class='ui checkbox' data-id='${task.id}' ?checked=${task.completed} @click=${checkboxEventHandler}>
-                <input type='text' class='task-title' contenteditable="true" data-id='${task.id}' @input=${updateEventHandler} value='${task.title}'>
+                <input type='text' contenteditable="true" data-id='${task.id}' @input=${updateEventHandler} value='${task.title}'>
                 <span id='actions' class='hidden actions'>
                     <i class='icon delete' data-id='${task.id}' @click=${deleteEventHandler}></i>
                 </span>
@@ -83,7 +83,7 @@ const UserInterface = Board => (() => {
 
         projects: (projects) => {
             const div = projects.map(project => html`
-                <input type='text' contenteditable="true" class='item ${project.active ? 'active blue' : ''}'>${project.title}
+                <input type='text' readonly="true" class='item ${project.active ? 'active blue' : ''}' value='${project.title}'>
             `)
 
             return div
