@@ -83,7 +83,7 @@ const UserInterface = Board => (() => {
 
         projects: (projects) => {
             const div = projects.map(project => html`
-                <input type='text' readonly="true" class='item ${project.active ? 'active blue' : ''}' value='${project.title}'>
+                <div class='item ${project.active ? 'active blue' : ''}'><input type='text' readonly="true" value='${project.title}'></div>
             `)
 
             return div
