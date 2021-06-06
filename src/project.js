@@ -1,5 +1,6 @@
 // @ts-check
 import Task from "./task";
+import generateRandomId from "./random";
 
 /**
  * @param {string} title Project title
@@ -25,7 +26,7 @@ const Project = (title, description, id, active = false) => ({
      * @param {Number} priority - New task priority - defaults to 1
      */
     addTask(title, description, dueDate, priority) {
-        this._tasks.push(Task(title, description, dueDate, priority, this._tasks.length));
+        this._tasks.push(Task(title, description, dueDate, priority, generateRandomId(this._tasks)));
     },
 
     /**
