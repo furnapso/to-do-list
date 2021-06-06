@@ -82,10 +82,18 @@ const UserInterface = Board => (() => {
         },
 
         projects: (projects) => {
+            const editEventHandler = e => {
+                const projectId = e.target.getAttribute('data-id');
+                const projectTextBox = document.querySelector(`input[data-id='${projectId}']`);
+
+                projectTextBox.removeAttribute('readonly');
+                projectTextBox.focus();
+            }
+
             const div = projects.map(project => html`
                 <div class='item ${project.active ? 'active blue' : ''}' id='project'>
-                    <input type='text' readonly="true" value='${project.title}'>
-                    <i class="edit outline icon"></i>
+                    <input type='text' readonly="true" value='${project.title}' data-id=${project.id}>
+                    <i class="edit outline icon" data-id='${project.id}' @click=${editEventHandler}></i>
                 </div>
             `)
 
