@@ -5,9 +5,7 @@ const Board = (() => {
     let _activeProject = 0;
 
     const activeProject = () => {
-        if (projects.length > 0) {
-            return Board.projects[_activeProject]
-        }
+        return projects.filter(i => i.active == true)[0];
     }
     
     const addProject = (title, description, active) => {
