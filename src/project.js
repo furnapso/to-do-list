@@ -38,7 +38,7 @@ const Project = (title, description, id, active = false) => ({
     },
 
     updateTask(id, title, dueDate, priority, completed) {
-        let task = this._tasks[id];
+        let task = this._tasks.filter(i => i.id == id)[0];
         task.title = title ? title : task.title;
         task.dueDate = dueDate ? dueDate : task.dueDate;
         task.priority = priority ? priority : task.priority;
