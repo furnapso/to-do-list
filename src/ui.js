@@ -108,7 +108,15 @@ const UserInterface = Board => (() => {
 
             const changeActive = e => {
                 if (!editingEnabled) {
-                    const projectId = e.target.getAttribute('data-id');
+                    let projectId
+                    if (e.target.tagName == 'DIV') {
+                        projectId = e.target.querySelector("input").getAttribute('data-id');
+                    }
+
+                    else {
+                        projectId = e.target.getAttribute('data-id');
+                    }
+
                     Board.changeActiveProject(projectId);
                     draw();
                 }
