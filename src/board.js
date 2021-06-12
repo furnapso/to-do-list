@@ -20,8 +20,10 @@ const Board = (() => {
     const changeActiveProject = (id) => {
         const currentlyActiveProject = projects.filter(i => i.active == true)[0];
         const projectToUpdate = projects.filter(i => i.id == id)[0];
-        projectToUpdate.active = true;
-        currentlyActiveProject.active = false;
+        if (currentlyActiveProject.id != projectToUpdate.id) {
+            projectToUpdate.active = true;
+            currentlyActiveProject.active = false;
+        }
     }
 
     /* create default project */
