@@ -124,7 +124,7 @@ const UserInterface = Board => (() => {
 
             const div = projects.map(project => html`
                 <div class='item ${project.active ? 'active blue' : ''}' id='project' @click=${changeActive}>
-                    <input type='text' readonly="true" value='${project.title}' data-id=${project.id}>
+                    <input type='text' readonly="true" .value='${project.title}' data-id=${project.id}>
                     <i class="edit outline icon" data-id='${project.id}' @click=${editMode}></i>
                 </div>
             `)
