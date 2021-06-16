@@ -20,7 +20,8 @@ const UserInterface = Board => (() => {
 
     const drawProjects = () => {
         const projectsDiv = components.projects(Board.projects);
-        render(projectsDiv, projectsContainer);
+        render(projectsDiv, projectsContainer)
+        projectTitle.innerText = Board.activeProject().title;
     }
 
     const addNewTask = () => {
