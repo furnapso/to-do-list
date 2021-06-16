@@ -1,7 +1,7 @@
 import Project from "./project";
 import generateRandomId from "./random";
 
-const Board = (() => {
+const Board = () => {
     let projects = [];
 
     const activeProject = () => {
@@ -32,6 +32,6 @@ const Board = (() => {
     return {
         projects, addProject, activeProject, updateProject, changeActiveProject
     }
-});
+};
 
 export default Board;
