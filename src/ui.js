@@ -63,7 +63,7 @@ const UserInterface = Board => (() => {
             }
 
             const updateEventHandler = e => {
-                let newTitle = e.target.innerText;
+                let newTitle = e.target.value;
                 let id = parseInt(e.target.dataset.id);
                 Board.activeProject().updateTask(id, newTitle);
                 console.log(newTitle);
