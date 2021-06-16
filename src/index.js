@@ -1,25 +1,22 @@
 import "./styles.css";
 import "fomantic-ui";
-import {render} from "lit-html";
 
 import Board from "./board";
 import UI from "./ui.js";
 
 let storage = window.localStorage;
+let board;
 
-if (storage.getItem('board') !== null){
-    Board = JSON.parse(storage.getItem('board'))
+if (storage.getItem('board') === null) {
+    board = Board();
 }
 
 else {
-    Board.projects[0].addTask("New task", "Task description", new Date(), 1);
-    Board.projects[0].addTask("New task", "Task description", new Date(), 1);
-    Board.activeProject()._tasks[0].completed = true;
+    board = JSON.parse(storage.getItem('board'));
 }
 
-UI(Board).draw();
+UI(board).draw();
 
 window.setInterval(() => {
-    console.log('Saving to local storage')
-    storage.setItem('board', JSON.stringify(Board))
+    storage.setItem('board', JSON.stringify(board))
 }, 3000);
