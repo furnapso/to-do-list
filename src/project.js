@@ -34,7 +34,7 @@ const Project = (title, description, id, active = false) => ({
      * @param {Number} id Task ID 
      */
     deleteTask(id) {
-        this._tasks.splice(id, 1)
+        this._tasks = this._tasks.filter(task => task.id !== id);
     },
 
     updateTask(id, title, dueDate, priority, completed) {
