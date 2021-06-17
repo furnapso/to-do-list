@@ -18,7 +18,15 @@ const Board = () => {
     }
 
     const deleteProject = (id) => {
+        if (projects.length === 1) {
+            throw 'You cannot delete the only project'
+        }
+        
+        const projectToDelete = projects.filter(p => p.id === id);
         projects = projects.filter(p => p.id !== id);
+        if (projectToDelete.active && projects.length > 0) {
+            projects[0].active = true;
+        }
     }
 
     const changeActiveProject = (id) => {
@@ -34,7 +42,7 @@ const Board = () => {
     addProject("Default Project", "This is the default starting project", true);
     
     return {
-        projects, addProject, activeProject, updateProject, changeActiveProject
+        projects, addProject, activeProject, updateProject, changeActiveProject, deleteProject
     }
 };
 
