@@ -17,6 +17,10 @@ const Board = () => {
         projectToUpdate.title = title;
     }
 
+    const deleteProject = (id) => {
+        projects = projects.filter(p => p.id !== id);
+    }
+
     const changeActiveProject = (id) => {
         const currentlyActiveProject = projects.filter(i => i.active == true)[0];
         const projectToUpdate = projects.filter(i => i.id == id)[0];
