@@ -39,7 +39,9 @@ const Board = () => {
     }
 
     /* create default project */
-    addProject("Default Project", "This is the default starting project", true);
+    if (projects.length == 0) {
+        addProject('Default Project', 'This is the default starting project', true)
+    }
     
     return {
         projects, addProject, activeProject, updateProject, changeActiveProject, deleteProject
