@@ -3,37 +3,23 @@ import "fomantic-ui";
 
 import Board from "./board";
 import UI from "./ui.js";
+import { set } from "date-fns";
 
 const storage = window.localStorage;
-let board;
 
-function observe(obj) {
-    const handler = {
-        get(target, propKey, receiver) {
-            const origMethod = obj[propKey];
-            if (typeof(origMethod) == 'function') {
-                return function (...args) {
-                    let result = origMethod.apply(this, args);
-                    storage.setItem('board', JSON.stringify(this));
-                    return result
-                };
-            }
-
-            else {
-                return origMethod
-            }
-        }
-    };
-
-    return new Proxy(obj, handler);
+function saveToStorage() {
+    storage.setItem('board', JSON.stringify(board));
 }
 
-if (storage.getItem('board') === null) {
-    board = observe(Board());
+let board = Board();
+
+if (storage.getItem('board')) {
+    const savedData = JSON.parse(storage.getItem('board'));
+    board = {...board, ...savedData};
 }
 
-else {
-    board = JSON.parse(storage.getItem('board'));
-}
+['mouseover', 'scroll', 'keydown'].forEach(e => {
+    document.addEventListener(e, saveToStorage)
+})
 
 UI(board).draw();
