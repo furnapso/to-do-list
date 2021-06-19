@@ -85,6 +85,16 @@ const UserInterface = Board => (() => {
         projects: (projects) => {
             let editingEnabled = false;
 
+            const deleteProject = e => {
+                const id = e.target.getAttribute('data-id');
+                try {
+                    Board.deleteProject(id);
+                } catch (error) {
+                    alert(error);
+                }
+                draw();
+            }
+
             const editMode = e => {
                 const projectId = e.target.getAttribute('data-id');
                 const projectTextBox = document.querySelector(`input[data-id='${projectId}']`);
@@ -127,6 +137,7 @@ const UserInterface = Board => (() => {
                 <div class='item ${project.active ? 'active blue' : ''}' id='project' @click=${changeActive}>
                     <input type='text' readonly="true" .value='${project.title}' data-id=${project.id}>
                     <i class="edit outline icon" data-id='${project.id}' @click=${editMode}></i>
+                    <i class='trash alternate outline icon' data-id='${project.id}' @click=${deleteProject}></i>
                 </div>
             `)
 
