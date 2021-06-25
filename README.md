@@ -10,6 +10,7 @@ Project for [The Odin Project](https://www.theodinproject.com) - *make a to-do l
 * webpack
 * [Fomantic UI](https://fomantic-ui.com/)
 * lit-html
+* localStorage
 
 ## Building and running on localhost
 
