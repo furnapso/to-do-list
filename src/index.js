@@ -11,11 +11,15 @@ function saveToStorage() {
     storage.setItem('board', JSON.stringify(board));
 }
 
-let board = Board();
+let board;
 
 if (storage.getItem('board')) {
     const savedData = JSON.parse(storage.getItem('board'));
-    board = {...board, ...savedData};
+    board = Board(savedData);
+}
+
+else {
+    board = Board();
 }
 
 ['mouseover', 'scroll', 'keydown'].forEach(e => {

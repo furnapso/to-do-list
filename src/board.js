@@ -1,7 +1,8 @@
 import Project from "./project";
+import Task from "./task";
 import generateRandomId from "./random";
 
-const Board = () => {
+const Board = (data) => {
     let projects = [];
 
     const activeProject = () => {
@@ -38,8 +39,20 @@ const Board = () => {
         }
     }
 
+    if (data) {
+        data.projects.forEach(project => {
+            const newProject = Project(project.title, project.description, project.id, project.active);
+
+            project._tasks.forEach(task => {
+                newProject._tasks.push(Task(task.title, task.description, task.dueDate, task.priority, task.id, task.completed));
+            })
+
+            projects.push(newProject);
+        })
+    }
+
     /* create default project */
-    if (projects.length == 0) {
+    else {
         addProject('Default Project', 'This is the default starting project', true)
     }
     
