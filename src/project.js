@@ -1,5 +1,6 @@
 // @ts-check
 import Task from "./task";
+import generateRandomId from "./random";
 
 /**
  * @param {string} title Project title
@@ -12,7 +13,7 @@ const Project = (title, description, id, active = false) => ({
     description: description,
     _tasks: [],
     id: id,
-    active: false,
+    active: active,
 
     getTasks() {
         return this._tasks;
@@ -25,7 +26,7 @@ const Project = (title, description, id, active = false) => ({
      * @param {Number} priority - New task priority - defaults to 1
      */
     addTask(title, description, dueDate, priority) {
-        this._tasks.push(Task(title, description, dueDate, priority, this._tasks.length));
+        this._tasks.push(Task(title, description, dueDate, priority, generateRandomId(this._tasks)));
     },
 
     /**
@@ -33,11 +34,11 @@ const Project = (title, description, id, active = false) => ({
      * @param {Number} id Task ID 
      */
     deleteTask(id) {
-        this._tasks.splice(id, 1)
+        this._tasks = this._tasks.filter(task => task.id !== id);
     },
 
     updateTask(id, title, dueDate, priority, completed) {
-        let task = this._tasks[id];
+        let task = this._tasks.filter(i => i.id == id)[0];
         task.title = title ? title : task.title;
         task.dueDate = dueDate ? dueDate : task.dueDate;
         task.priority = priority ? priority : task.priority;

@@ -89,3 +89,31 @@
 [contenteditable] {
     outline: none;
 }
+
+.add-new-task-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#add-new-task:hover {
+    color: green;
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+#task input[type='text'], #projects input[type='text'], #projects input:active {
+    border: none;
+    width: 100%;
+    outline: none;
+    background: none;
+}
+
+#project {
+    display: flex;
+    align-items: center;
+}
+
+#project *, #project {
+    cursor: pointer;
+}
