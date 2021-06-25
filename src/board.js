@@ -23,11 +23,14 @@ const Board = (data) => {
             throw 'You cannot delete the only project'
         }
         
-        const projectToDelete = projects.filter(p => p.id === id);
-        projects = projects.filter(p => p.id !== id);
+        const projectToDelete = projects.filter(p => p.id == id)[0];
+        const projectIndex = projects.indexOf(projectToDelete);
+
         if (projectToDelete.active && projects.length > 0) {
-            projects[0].active = true;
+            changeActiveProject(projects[0].id);
         }
+        
+        projects.splice(projectIndex, 1);
     }
 
     const changeActiveProject = (id) => {

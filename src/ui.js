@@ -92,6 +92,7 @@ const UserInterface = Board => (() => {
                 } catch (error) {
                     alert(error);
                 }
+                console.log(Board.projects);
                 draw();
             }
 
@@ -134,8 +135,8 @@ const UserInterface = Board => (() => {
             }
 
             const div = projects.map(project => html`
-                <div class='item ${project.active ? 'active blue' : ''}' id='project' @click=${changeActive}>
-                    <input type='text' readonly="true" .value='${project.title}' data-id=${project.id}>
+                <div class='item ${project.active ? 'active blue' : ''}' id='project'>
+                    <input type='text' readonly="true" .value='${project.title}' data-id=${project.id}  @click=${changeActive}>
                     <i class="edit outline icon" data-id='${project.id}' @click=${editMode}></i>
                     <i class='trash alternate outline icon' data-id='${project.id}' @click=${deleteProject}></i>
                 </div>
